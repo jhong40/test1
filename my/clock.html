@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="http://macgeeks.com/public/upload/item/Screen%20Shot%202013-09-15%20at%201.32.38%20PM.PNG">
+<style>
+body {
+	background-color: grey;
+}
+#div1 {
+	width: 1200px;
+	margin: 200px auto;
+
+	text-align: center;
+/*	border: 3px solid red; */
+}
+
+#disp1 {
+   	font-size: 1400%;
+}
+#disp2 {
+	font-size: 600%;
+}
+
+</style>
+</head>
+
+<body>
+<div id="div1">
+<span id="disp1">09:28</span>
+<span id="disp2">PM</span>
+</div>
+
+
+
+
+<script>
+setInterval(count, 10);
+function count() {
+  var d = new Date();
+  var h = d.getHours();
+  var m = d.getMinutes();
+  var s = d.getSeconds();
+
+  var h1=pad(h);
+  var m1=pad(m);
+  var s1=pad(s);
+
+
+  document.getElementById("disp1").innerHTML = h1 + ":" + m1 +  ":" + s1 + " ";
+}
+
+function pad(num) {
+    var s = num+"";
+    if (s.length < 2) s = "0" + s;
+    return s;
+}
+</script>
+
+</body>
+</html>

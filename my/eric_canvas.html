@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+<H1> This is my Canvas created by Eric Liu on 12/19/2015 </H1>
+<canvas id="myCanvas" width="800" height="500" style="border:1px solid #c3c3c3;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<script>
+var c_canvas = document.getElementById("myCanvas");
+var c = c_canvas.getContext("2d");
+
+var size = 80;
+
+c.fillStyle ="rgba(255, 0, 0, 0.5)";
+c.fillRect(20, 20, size, size);
+c.fillStyle ="rgba(0, 255, 0, 0.5)";
+c.fillRect(80, 80, size, size);
+c.fillStyle ="rgba(0, 0, 255, 0.5)";
+c.fillRect(140, 140, size, size);
+</script>
+
+</body>
+</html>

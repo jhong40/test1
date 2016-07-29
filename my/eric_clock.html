@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="http://timesync.gmu.edu/libnews/wp-content/uploads/2011/03/time-warp.jpg">
+<style>
+body{
+    background-color: coral;
+   /* background-color: #FFFF66; */
+}
+#disp {
+	width: 750px;
+	height: 300px;
+	border-style: double groove ridge inset;
+	margin: 100px auto;
+	background: linear-gradient(to bottom right, cyan, darkorange);
+	text-align: center;
+	font-size: 160px;
+	padding-top: 150px;
+	font-family: "Times New Roman", Times, serif;
+	border-radius: 15px;
+	box-shadow: 20px 20px hotpink;
+	border-width: 20px;
+}
+#ap {
+	font-size: 46px;
+}
+</style>
+</head>
+<body>
+<div id="disp"><span id="poop"></span><span id="ap"></span></div>
+
+<audio id="audio" autoplay>
+  <source id="soundsrc" src="http://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function eric() {
+	var d = new Date();
+	var h = d.getHours();
+	var m = d.getMinutes();
+	var s = d.getSeconds();
+	var m1 = checkTime(m);
+	var s1 = checkTime(s);
+	var ap = pie(h);
+	var h1 = cheese(h);
+	document.getElementById("poop").innerHTML = h1+":"+m1+":"+s1;
+	document.getElementById("ap").innerHTML = ap;
+}
+var myVar = setInterval(eric, 10);
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};
+    return i;
+}
+function pie(x) {
+	var s;
+	if(x < 12) {
+		s =  "  AM";
+	}
+	else{
+		s = "  PM";
+	}
+	return s;
+}
+function cheese(y){
+	var c;
+	if(y > 12) {
+		y = y - 12;
+		if(y<10){
+		    c = "0" + y;
+		    return c;
+		}
+		else{
+		    return y;
+		}
+	}
+	else{
+	    if(y<10){
+	        c = "0" + y;
+	        return c;
+	    }
+	    else{
+	        return y;
+	    }
+	}
+}
+
+</script>
+</body>
+
+</html>

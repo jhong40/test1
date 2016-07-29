@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+span.input {
+   color: red;
+}
+td.nn {
+  border: 1px solid green ;
+  padding:0 15px 0 15px;
+}
+</style>
+
+<script>
+  function displayquestion() {
+  	var x=Math.floor(Math.random() * 10);
+  	var y=Math.floor(Math.random() * 10);
+  	var z=x+y;
+    document.getElementById("xxx").innerText = x;
+    document.getElementById("yyy").innerText = y;
+    
+    var pos_num=Math.floor(Math.random() * 4)+1;
+    var pos_tmp=pos_num.toString();
+    var pos_str="a".concat(pos_tmp);
+    
+    document.getElementById(pos_str).innerText=z;  <!-- display correct answser -->
+    
+  }
+  function pickAnswer(event) {
+	var x=document.getElementById("xxx").innerText;
+	var y=document.getElementById("yyy").innerText;
+	var ans=parseInt(x)+ parseInt(y);   <!-- correct answer -->
+    var ans_id=event.target.id;  
+    var user_ans=document.getElementById(ans_id).innerText;
+	var user_ans_number=parseInt(user_ans);
+    
+	if (ans==user_ans_number) {
+      document.getElementById(ans_id).style.color="green";
+      document.getElementById("comment").style.color="green";
+      document.getElementById("comment").innerText="Great";
+	}
+	else {
+	  document.getElementById(ans_id).style.color="red";
+	  document.getElementById("comment").style.color="red";
+      document.getElementById("comment").innerText="Wrong";
+	}
+  }
+  function buttonClick() {
+  	location.reload();
+  }
+</script>
+</head>
+<body>
+
+<br><br><br><br><br><br><br>
+<H1><Center>This is an addition test...</Center></H1>
+
+<H1><Center>
+  <span class="input" id="xxx"></span>
++
+  <span class="input" id="yyy"></span>
+= 
+<p>
+<!--
+<input type='text' id='input' size='2' style="font-size: 18pt">
+-->
+  <div>
+      <table>
+        <tr>
+          <td class="nn"><span id="a1" ondblclick="pickAnswer(event)">10</span></td>
+          <td class="nn"><span id="a2" ondblclick="pickAnswer(event)">14</span></td>		
+          <td class="nn"><span id="a3" ondblclick="pickAnswer(event)">15</span></td>
+          <td class="nn"><span id="a4" ondblclick="pickAnswer(event)">16</span></td>
+          <td><button type="button" onclick="buttonClick()">AnotherOne</button></td>
+        </tr>
+      </table>
+  </div>
+  <br>
+  <span id="comment"></span>
+</Center>
+</H1>
+
+<script>
+displayquestion();
+</script>
+
+</body>
+</html>

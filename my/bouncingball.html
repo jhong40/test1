@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#test {
+	position:fixed;
+    border-radius: 50%;
+	top:0;
+	left:0;
+	z-index: -1;
+	width: 100px;
+	height: 100px;
+}
+#demo {
+   position:fixed;
+   bottom:0;
+   left:0;
+}
+</style>
+</head>
+<body onclick="movepic(event)"  ontouchstart="touchmovepic(event)">
+
+<h2>Rounded Images</h2>
+
+<p>Use the border-radius property to create circled images:</p>
+
+<p>
+Republicans, say goodbye to the undercard debates.
+Next week's ABC News Republican primary debate in Manchester, New Hampshire, will feature just one debate, and that debate is likely to exclude several bottom-tier candidates, CNNMoney has learned.
+</p>
+<p>
+For the first time in the GOP debate season there will not be what has been called the "junior varsity," "the kids' table" or the "warm up" debate.
+The criteria for the February 6 debate, which is set to be released Wednesday afternoon, will exclude any candidate who does not finish in the top-three in the Iowa caucuses or in the top six either nationally or in New Hampshire.
+At present, such criteria would likely keep Rand Paul, Carly Fiorina, Mike Huckabee and Rick Santorum off the debate stage -- unless they can pull their numbers up in the days ahead.
+Related: Donald Trump and Fox at war: Neither side is backing down
+The forthcoming criteria from ABC News is as follows: Candidates must do one of the following:
+</p>
+<p>
+-- Place among the top three candidates ranked according to the popular vote in the Iowa Republican caucuses on February 1, 2016.
+-- Place among the top six candidates in an average of New Hampshire Republican presidential polls recognized by ABC News. To be included, polls must be conducted no earlier than January 1, 2016, and must be released to the public before 5 p.m. ET on February 4, 2016. Poll averages will not be rounded.
+-- Place among the top six candidates in an average of national Republican presidential polls recognized by ABC News. To be included, polls must be conducted no earlier than January 1, 2016, and must be released to the public before 5 p.m. ET on February 4, 2016. Poll averages will not be rounded.
+Donald Trump is skipping Thursday's GOP debate and going to war with the Fox News Channel.
+Instead of attending the debate, "We'll have an event here in Iowa, with potentially another network, to raise money for wounded warriors," campaign manager Corey Lewandowski said. "And Fox will go from probably having 24 million viewers to about 2 million."
+</p>
+<p>
+Updates: Read the latest on the Trump-Fox war
+</p>
+<p>The fracas escalated quickly on Tuesday, but was the culmination of months of tension between the GOP frontrunner and the Fox News host Megyn Kelly.
+At the end of the day, Fox said Trump "is still welcome" at the debate "and will be treated fairly," but the network also slammed Trump for "viciously" attacking Kelly and accused Lewandowski of threatening her.
+In a statement, a Fox News spokesperson said Lewandowski told a Fox executive last Saturday that Kelly had a "rough couple of days after that last debate" and he "would hate to have her go through that again."
+"Lewandowski was warned not to level any more threats, but he continued to do so," Fox said. "We can't give in to terrorizations toward any of our employees."
+</p>
+
+<img id="test" src="http://www.w3schools.com/css/paris.jpg" alt="Paris">
+
+<p id="demo"></p>
+<script>
+
+var imgtest=document.querySelector("#test");
+
+//setInterval(run, 400);
+var x=0;
+var y=0;
+
+function run() {
+  x=Math.random()*1200;
+  y=Math.random()*600;
+  var dd=Math.random()*400;
+  var w=50+dd;
+  var h=50+dd;
+  imgtest.style.left=x+"px";
+  imgtest.style.top=y+"px";
+  imgtest.style.width=w+"px";
+  imgtest.style.height=h+"px";
+}
+
+function movepic(event) {
+    var x = event.clientX;
+    var y = event.clientY;
+    var coords = "X coords: " + x + ", Y coords: " + y;
+    document.getElementById("demo").innerHTML = coords;
+  var dd=Math.random()*400;
+  var w=50+dd;
+  var h=50+dd;
+  imgtest.style.left=x+"px";
+  imgtest.style.top=y+"px";
+  imgtest.style.width=w+"px";
+  imgtest.style.height=h+"px";
+
+}
+
+function touchmovepic(event) {
+    var x = event.touches[0].pageX;
+    var y = event.touches[0].pageY;
+    var coords = "X coords: " + x + ", Y coords: " + y;
+    document.getElementById("demo").innerHTML = coords;
+  var dd=Math.random()*400;
+  var w=50+dd;
+  var h=50+dd;
+  imgtest.style.left=x+"px";
+  imgtest.style.top=y+"px";
+  imgtest.style.width=w+"px";
+  imgtest.style.height=h+"px";
+
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="https://upload.wikimedia.org/wikipedia/commons/e/ef/Mount_Hood_reflected_in_Mirror_Lake,_Oregon.jpg">
+	<style>
+#disp {
+	width: 400px;
+	height: 200px;
+	border: inset;
+	margin: 20px auto;
+	background: linear-gradient(to bottom right, white, black);
+	text-align: center;
+	font-size: 90px;
+	padding-top: 75px;
+	font-family: "Times New Roman", Times, serif;
+	border-radius: 15px;
+	box-shadow: 10px 10px gray;
+}
+#buttonDiv{
+    width: 275px;
+    margin: 15px auto;
+    padding: 1px;
+}
+#inputDiv{
+    width: 400px;
+    margin: 15px auto;
+    padding: 1px;
+}
+input{
+	width: 50px;
+	height: 25px;
+}
+button{
+    margin: 11px;
+    width: 65px;
+    height: 50px;
+}
+</style>
+</head>
+<body>
+<div id="inputDiv">
+  Hours:
+  <input id="hour" type="number" min="0" max="12">
+  Minutes:
+  <input id="minutes" type="number" min="0" max="59">
+  Seconds:
+  <input id="seconds" type="number" min="0" max="59">
+</div>
+<div id="buttonDiv">
+<button onclick="setTimer()">SetTime</button>
+<button id="poop" onclick="startTimer()">Start</button>
+<button onclick="cancel()">Cancel</button>
+</div>
+    <audio id="myAudio">
+  <source src="http://www.w3schools.com/tags/horse.mp3" type="audio/mpeg">
+    </audio>
+	<div id="disp"><span id="spanA">00</span>:<span id="spanB">00</span>:<span id="spanC">00</span></div>
+
+	<a id="you" href="https://www.youtube.com/watch?v=qS7nqwGt4-I"></a>
+	<script>
+    var timerHandle;
+function startTimer(){
+    var flag = document.getElementById("poop").innerHTML;
+    if (flag=="Start") {
+        timerHandle  = setInterval(goingDown, 1000);
+        document.getElementById("poop").innerHTML="Pause";
+    }
+    if (flag=="Pause") {
+        clearInterval(timerHandle);
+        document.getElementById("poop").innerHTML="Continue";
+    }
+    if (flag=="Continue"){
+        document.getElementById("poop").innerHTML="Pause";
+        timerHandle = setInterval(goingDown, 1000);
+    }
+}
+function cancel(){
+    document.getElementById("spanC").innerHTML="00";
+    document.getElementById("spanB").innerHTML="00";
+    document.getElementById("spanA").innerHTML="00";
+    clearInterval(timerHandle);
+    document.getElementById("poop").innerHTML="Start";
+    document.getElementById("hour").value = "";
+    document.getElementById("minutes").value = "";
+    document.getElementById("seconds").value = "";
+}
+function goingDown(){
+    var s = document.getElementById("spanC").innerHTML;
+    var m = document.getElementById("spanB").innerHTML;
+    var h = document.getElementById("spanA").innerHTML;
+    var t = (h*60*60)+(m*60)+(s*1);
+    t=t-1;
+    if(t<=0){
+        document.getElementById("spanC").innerHTML="00";
+        document.getElementById("spanB").innerHTML="00";
+        document.getElementById("spanA").innerHTML="00";
+        clearInterval(timerHandle);
+        document.getElementById("myAudio").load();
+        document.getElementById("myAudio").play();
+        document.getElementById("hour").value = "";
+        document.getElementById("minutes").value = "";
+        document.getElementById("seconds").value = "";
+        document.getElementById("poop").innerHTML="Start";
+        document.getElementById("you").click();
+
+    }
+    else{
+        h = t/(60*60);
+        h = Math.floor(h);
+        s = t%60;
+        m = (t-(h*60*60)-s)/60;
+        if(h<10){
+            h = "0" + h;
+        }
+        if(m<10){
+            m = "0" + m;
+        }
+        if(s<10){
+            s = "0" + s;
+        }
+        document.getElementById("spanC").innerHTML=s;
+        document.getElementById("spanB").innerHTML=m;
+        document.getElementById("spanA").innerHTML=h;
+    }
+}
+function setTimer() {
+    var h = document.getElementById("hour").value;
+    		if (h == null || h == ""){
+    			h=0;
+    		}
+    		if(h<10){
+    			h="0"+h;
+    		}
+    		document.getElementById("spanA").innerHTML = h;
+    var m = document.getElementById("minutes").value;
+    		if (m == null || m == ""){
+    			m=0;
+    		}
+        	if(m<10){
+    			m="0"+m;
+    		}
+    		document.getElementById("spanB").innerHTML = m;
+    var s = document.getElementById("seconds").value;
+    		if (s == null || s == ""){
+    			s=0;
+    		}
+        	if(s<10){
+    			s="0"+s;
+    		}
+    		document.getElementById("spanC").innerHTML = s;
+}
+</script>
+</body>
+</html>
