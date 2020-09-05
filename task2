@@ -1,0 +1,18 @@
+#sample data below,
+# extract Name, JNDI Name, Base Queue Name to varible: name, jndiname, qname 
+# print(name+"  " + jndiname + " " + qname) for each
+
+# eventually I have a function to call - myfunc(name, jndiname, qname)
+
+
+
+DEX_Q_MFI
+  Name: DEX_Q_MFI
+  JNDI name: com/basic/queueu/DEX_Q_MFI
+  Base Queue Name: DEX_Q_MFI
+DEX_Q_CD
+  Name: DEX_Q_CD
+  JNDI name: com/advanced/queue/DEX_Q_CD
+  Base Queue Name: DEX_Q_CD 
+  
+  
