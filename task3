@@ -1,0 +1,36 @@
+import re
+import sys
+
+fin=sys.argv[1]
+fout=sys.argv[2]
+print(fin)
+print(fout)
+
+fr = open(fin, "r")
+fw = open(fout, "w")
+
+lines = fr.readlines()
+
+for line in lines:
+  linelist=line.split()
+  txt=linelist[2]
+  if txt != '443':
+    fw.write(line)
+    
+    
+####
+
+### uniq identifier: combination of 1st field and 6th filed 
+### for each identifier: count number
+### output sample:
+### 10.82.33.1 aaa 3
+### 10.82.33.2 bbb 2
+### 10.82.33.4 aaa 1
+
+
+10.82.33.1 aaa.bbb.com 443 172.16.100.21 3x20289x1 aaa [08/Sep/2020:00:03:29 -0400] "POST /jira/rest/analytics/1.0/publish/bulk HTTP/1.1" 200 - 
+10.82.33.2 aaa.bbb.com 443 172.16.100.21 3x20289x1 bbb [08/Sep/2020:00:03:29 -0400] "POST /jira/rest/analytics/1.0/publish/bulk HTTP/1.1" 200 - 
+10.82.33.1 aaa.bbb.com 443 172.16.100.21 3x20289x1 aaa [08/Sep/2020:00:03:29 -0400] "POST /jira/rest/analytics/1.0/publish/bulk HTTP/1.1" 200 - 
+10.82.33.4 aaa.bbb.com 443 172.16.100.21 3x20289x1 aaa [08/Sep/2020:00:03:29 -0400] "POST /jira/rest/analytics/1.0/publish/bulk HTTP/1.1" 200 - 
+10.82.33.2 aaa.bbb.com 443 172.16.100.21 3x20289x1 bbb [08/Sep/2020:00:03:29 -0400] "POST /jira/rest/analytics/1.0/publish/bulk HTTP/1.1" 200 - 
+10.82.33.1 aaa.bbb.com 443 172.16.100.21 3x20289x1 aaa [08/Sep/2020:00:03:29 -0400] "POST /jira/rest/analytics/1.0/publish/bulk HTTP/1.1" 200 - 
