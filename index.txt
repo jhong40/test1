@@ -1,3 +1,0 @@
-
-This is a test <br>
-<a href="https://www.w3schools.com">Visit W3Schools.com!</a>
