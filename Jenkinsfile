@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage("Echo Version") {
             steps {
-               git 'https://github.com/jhong40/test1.git'
+               // git 'https://github.com/jhong40/test1.git'
                 sh 'echo maven version'
                 sh 'mvn --version'
 
