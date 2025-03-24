@@ -12,6 +12,8 @@ pipeline {
                // git 'https://github.com/jhong40/test1.git'
                 sh 'echo maven version'
                 sh 'mvn --version'
+                sh 'ls'
+                sh 'pwd'
 
             }
         }
