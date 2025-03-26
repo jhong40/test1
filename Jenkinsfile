@@ -1,9 +1,9 @@
 pipeline {
-    agent { dockerContainer { image 'maven:3.9.9-eclipse-temurin-21-alpine' } }
+    agent { dockerContainer { image 'python:3.13.2-alpine3.21' } }
     stages {
         stage('build') {
             steps {
-                sh 'mvn --version'
+                sh 'python --version'
             }
         }
     }
